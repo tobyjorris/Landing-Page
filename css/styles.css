@@ -8,7 +8,6 @@
  *
 */
 
-
 /* ---- Base Rules ---- */
 body {
     background: rgb(136,203,171);
@@ -60,10 +59,14 @@ section {
     min-height: 80vh;
 }
 
-
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
+.navbar__menu {
+    background: pink;
+}
+
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -72,6 +75,7 @@ section {
 
 .navbar__menu li {
     display: inline-block;
+    color: black;
 }
 
 .navbar__menu .menu__link {
