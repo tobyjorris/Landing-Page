@@ -50,17 +50,28 @@ const getTargetCoordinates = elementRef => {
 
 // Add class 'active' to section when near top of viewport
 window.addEventListener('scroll', function () {
+    let inFocusSectionId;
+
     document.querySelectorAll('section').forEach(section => {
         const locationFromTop = getTargetCoordinates(section).top;
         if (locationFromTop > (window.innerHeight * 0.05) && locationFromTop < window.innerHeight * 0.85) {
-            section.setAttribute('class', 'your-active-class')
+            section.setAttribute('class', 'your-active-class');
+            inFocusSectionId = section.id;
+            document.querySelectorAll('a').forEach(link => {
+                console.log(link.getAttribute('href'), 'href Attribute');
+                if (link.getAttribute('href') === section.id) {
+                    console.log('added class to link', link.href)
+                    link.classList.add('menu__link__active');
+                } else {
+                    console.log('removed class from link');
+                    link.classList.remove('menu__link__active');
+                }
+            })
         } else {
             section.removeAttribute('class');
         }
     })
-    document.querySelectorAll('a').forEach(link => {
-        link.re
-    })
+    console.log(inFocusSectionId);
 });
 
 // Scroll to anchor ID using scrollTO event
